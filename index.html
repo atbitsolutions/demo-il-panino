@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Il Panino Resto Bar | Demo ATB IT Solutions</title>
-  <meta name="description" content="Demo no oficial de página web para restaurante, menú digital, reservas y pedidos por WhatsApp." />
+  <meta name="description" content="Demo no oficial de página web para restaurante, menú digital, reservas, promociones automáticas y pedidos por WhatsApp." />
   <style>
     :root {
       --bg: #120b08;
@@ -16,6 +16,8 @@
       --accent-2: #ffd166;
       --green: #25d366;
       --danger: #e54835;
+      --blue: #3b82f6;
+      --pink: #ec4899;
       --border: rgba(255,255,255,.12);
       --shadow: 0 18px 55px rgba(0,0,0,.35);
     }
@@ -81,7 +83,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
       font-size: 14px;
       color: var(--muted);
       font-weight: 700;
@@ -118,6 +120,14 @@
       background: var(--green);
       color: white;
       box-shadow: 0 15px 35px rgba(37,211,102,.25);
+    }
+    .btn-instagram {
+      background: linear-gradient(135deg, #f97316, #db2777, #7c3aed);
+      color: white;
+    }
+    .btn-facebook {
+      background: #1877f2;
+      color: white;
     }
 
     .hero {
@@ -172,7 +182,7 @@
     }
 
     .food-photo {
-      height: 360px;
+      height: 350px;
       margin: 18px;
       border-radius: 28px;
       background:
@@ -197,23 +207,26 @@
     .photo-label strong { display: block; font-size: 26px; }
     .photo-label span { color: var(--muted); }
 
-    .stats {
+    .quick-hub {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
       padding: 0 18px 18px;
     }
 
-    .stat {
-      background: rgba(255,255,255,.07);
+    .hub-link {
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 18px 12px;
+      background: rgba(255,255,255,.07);
+      border-radius: 18px;
+      padding: 14px;
+      font-weight: 900;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       text-align: center;
     }
-
-    .stat b { display: block; color: var(--accent-2); font-size: 22px; }
-    .stat span { color: var(--muted); font-size: 12px; font-weight: 700; }
 
     section {
       max-width: 1160px;
@@ -236,7 +249,7 @@
     }
 
     .section-head p {
-      max-width: 530px;
+      max-width: 560px;
       margin: 0;
       color: var(--muted);
       line-height: 1.6;
@@ -246,6 +259,12 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
     }
 
     .card {
@@ -269,6 +288,56 @@
 
     .card h3 { margin: 0 0 8px; font-size: 21px; }
     .card p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .promo-today {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255,138,0,.24), rgba(229,72,53,.17));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 34px;
+      padding: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .promo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--accent-2);
+      font-weight: 1000;
+      margin-bottom: 14px;
+    }
+
+    .promo-visual {
+      min-height: 280px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 40% 40%, #ffd166 0 12%, transparent 13%),
+        radial-gradient(circle at 60% 55%, #ff8a00 0 16%, transparent 17%),
+        radial-gradient(circle at 46% 58%, #8b2d16 0 28%, transparent 29%),
+        linear-gradient(135deg, #2b1811, #0b0604);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+    }
+
+    .promo-today h2 { font-size: clamp(32px, 4vw, 56px); margin: 0 0 12px; }
+    .promo-today p { color: var(--muted); line-height: 1.65; margin: 0 0 22px; }
+
+    .note-box {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      line-height: 1.55;
+    }
 
     .menu-wrap {
       display: grid;
@@ -302,31 +371,24 @@
     .item span { color: var(--muted); font-size: 14px; }
     .price { color: var(--accent-2); font-weight: 1000; white-space: nowrap; }
 
-    .promo {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 24px;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(255,138,0,.22), rgba(229,72,53,.15));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 32px;
-      padding: 30px;
-      overflow: hidden;
+    .social-center {
+      background: rgba(255,255,255,.065);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 28px;
     }
 
-    .promo-visual {
-      min-height: 260px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 40% 40%, #ffd166 0 12%, transparent 13%),
-        radial-gradient(circle at 60% 55%, #ff8a00 0 16%, transparent 17%),
-        radial-gradient(circle at 46% 58%, #8b2d16 0 28%, transparent 29%),
-        linear-gradient(135deg, #2b1811, #0b0604);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+    .social-center h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      letter-spacing: -1px;
     }
 
-    .promo h2 { font-size: clamp(32px, 4vw, 56px); margin: 0 0 12px; }
-    .promo p { color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+    .social-center p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0 0 20px;
+    }
 
     .contact-box {
       display: grid;
@@ -388,19 +450,19 @@
     }
 
     @media (max-width: 900px) {
-      .hero, .promo, .contact-box, .menu-wrap { grid-template-columns: 1fr; }
+      .hero, .promo-today, .contact-box, .menu-wrap { grid-template-columns: 1fr; }
       .hero { padding-top: 42px; }
       .hero-card { min-height: auto; }
-      .grid-3 { grid-template-columns: 1fr; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr; }
       .section-head { align-items: start; flex-direction: column; }
       .nav-links { display: none; }
-      .stats { grid-template-columns: 1fr; }
+      .quick-hub { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="top-demo-bar">
-    Demo no oficial creada por ATB IT Solutions para presentación comercial. Textos, precios y fotos deben ser validados por el negocio.
+    Demo no oficial creada por ATB IT Solutions para presentación comercial. Textos, precios, fotos y datos deben ser validados por el negocio.
   </div>
 
   <header>
@@ -410,8 +472,9 @@
         <span>Il Panino Resto Bar</span>
       </a>
       <div class="nav-links">
+        <a href="#promo-hoy">Promo de hoy</a>
         <a href="#menu">Menú</a>
-        <a href="#promos">Promos</a>
+        <a href="#redes">Redes</a>
         <a href="#reservas">Reservas</a>
         <a href="#ubicacion">Ubicación</a>
       </div>
@@ -421,52 +484,79 @@
   <main id="inicio" class="hero">
     <div>
       <div class="eyebrow">🍕 Paninos · Pizzas · Hamburguesas · Tragos</div>
-      <h1>Buen sabor, buen ambiente y pedidos al toque.</h1>
+      <h1>Todo Il Panino en un solo lugar.</h1>
       <p>
-        Disfrutá paninos, pizzas, hamburguesas, tragos y chopp en un ambiente ideal para compartir con amigos, familia o reservar tu evento.
+        Una página principal para que los clientes encuentren rápido el menú, la promo del día, WhatsApp, ubicación, reservas y redes sociales sin buscar en varios lugares.
       </p>
       <div class="hero-actions">
         <a class="btn btn-whatsapp" href="https://wa.me/595995357563?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">💬 Pedir por WhatsApp</a>
+        <a class="btn btn-primary" href="#promo-hoy">🔥 Ver promo de hoy</a>
         <a class="btn btn-secondary" href="#menu">Ver menú</a>
       </div>
     </div>
 
-    <aside class="hero-card" aria-label="Presentación del restaurante">
+    <aside class="hero-card" aria-label="Centro digital del restaurante">
       <div class="food-photo">
         <div class="photo-label">
           <strong>Il Panino</strong>
           <span>Resto Bar · Areguá</span>
         </div>
       </div>
-      <div class="stats">
-        <div class="stat"><b>Pedidos</b><span>por WhatsApp</span></div>
-        <div class="stat"><b>Menú</b><span>digital simple</span></div>
-        <div class="stat"><b>Reservas</b><span>mesas y eventos</span></div>
+      <div class="quick-hub">
+        <a class="hub-link" href="#menu">🍔 Menú</a>
+        <a class="hub-link" href="#promo-hoy">🔥 Promo</a>
+        <a class="hub-link" href="https://wa.me/595995357563" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="hub-link" href="https://maps.app.goo.gl/vcPdxZHaCfqYzc5UA" target="_blank" rel="noopener">📍 Llegar</a>
       </div>
     </aside>
   </main>
 
   <section>
     <div class="section-head">
-      <h2>Todo lo que el cliente necesita ver rápido.</h2>
-      <p>Una página directa para mostrar productos, ubicación, horarios y contacto sin depender solo de redes sociales.</p>
+      <h2>Una web como punto central del negocio.</h2>
+      <p>No reemplaza las herramientas que ya usan. Las ordena en una sola página para que el cliente encuentre todo rápido.</p>
     </div>
-    <div class="grid-3">
+    <div class="grid-4">
       <article class="card">
         <div class="icon">📲</div>
-        <h3>Pedidos directos</h3>
-        <p>Botón conectado a WhatsApp para consultas, pedidos y reservas sin vueltas.</p>
+        <h3>WhatsApp directo</h3>
+        <p>Botón para pedidos, consultas y reservas sin pasos innecesarios.</p>
       </article>
       <article class="card">
-        <div class="icon">🍔</div>
-        <h3>Menú claro</h3>
-        <p>Categorías simples para paninos, pizzas, hamburguesas, bebidas y promociones.</p>
+        <div class="icon">🔥</div>
+        <h3>Promo automática</h3>
+        <p>La página muestra la promoción correcta según el día de la semana.</p>
+      </article>
+      <article class="card">
+        <div class="icon">📸</div>
+        <h3>Redes sociales</h3>
+        <p>Acceso directo a Instagram y Facebook desde la página principal.</p>
       </article>
       <article class="card">
         <div class="icon">📍</div>
-        <h3>Ubicación visible</h3>
-        <p>Dirección, mapa y botón para llegar desde Google Maps.</p>
+        <h3>Ubicación</h3>
+        <p>Google Maps, horarios y datos de contacto visibles para clientes nuevos.</p>
       </article>
+    </div>
+  </section>
+
+  <section id="promo-hoy">
+    <div class="promo-today">
+      <div class="promo-visual" aria-label="Imagen ilustrativa de comida"></div>
+      <div>
+        <div class="promo-badge">🔥 Promo automática</div>
+        <h2 id="promo-title">Promo de hoy</h2>
+        <p id="promo-description">
+          La página puede cargar automáticamente la promoción correspondiente al día.
+        </p>
+        <div class="hero-actions">
+          <a id="promo-whatsapp" class="btn btn-whatsapp" href="https://wa.me/595995357563" target="_blank" rel="noopener">💬 Pedir esta promo</a>
+          <a class="btn btn-secondary" href="#menu">Ver menú</a>
+        </div>
+        <div class="note-box">
+          Ejemplo: el local pasa sus promos fijas una vez y la web muestra automáticamente la del día. Así no dependen siempre de publicar historias o estados para que el cliente sepa qué promo hay.
+        </div>
+      </div>
     </div>
   </section>
 
@@ -508,18 +598,30 @@
         </div>
       </div>
     </div>
+
+    <div class="note-box">
+      También se puede agregar un botón a su menú digital actual, si desean mantenerlo. La web funcionaría como página principal y el menú como una sección más dentro del recorrido del cliente.
+    </div>
   </section>
 
-  <section id="promos">
-    <div class="promo">
-      <div class="promo-visual" aria-label="Imagen ilustrativa de comida"></div>
-      <div>
-        <div class="eyebrow">🔥 Promos destacadas</div>
-        <h2>Promociones listas para publicar cada semana.</h2>
-        <p>
-          Esta sección puede usarse para combos, happy hour, promociones de pizza, eventos o novedades. El cliente solo envía la promo y ATB la actualiza.
-        </p>
-        <a class="btn btn-primary" href="https://wa.me/595XXXXXXXXX?text=Hola%2C%20quiero%20consultar%20por%20las%20promos" target="_blank" rel="noopener">Consultar promos</a>
+  <section id="redes">
+    <div class="social-center">
+      <div class="section-head" style="margin-bottom: 0;">
+        <div>
+          <h2>Redes, menú, WhatsApp y ubicación en un solo enlace.</h2>
+          <p>
+            Muchos clientes llegan desde Google, Instagram o recomendaciones. Esta página puede reunir todos los accesos importantes para que no se pierdan: menú, pedidos, reservas, redes sociales y ubicación.
+          </p>
+        </div>
+      </div>
+      <div class="hero-actions" style="margin-top: 22px;">
+        <a class="btn btn-instagram" href="https://www.instagram.com/ilpaninoaregua/" target="_blank" rel="noopener">📸 Instagram</a>
+        <a class="btn btn-facebook" href="#" target="_blank" rel="noopener">f Facebook</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/595995357563" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn btn-secondary" href="https://maps.app.goo.gl/vcPdxZHaCfqYzc5UA" target="_blank" rel="noopener">📍 Google Maps</a>
+      </div>
+      <div class="note-box">
+        El link de Facebook y el número de WhatsApp se reemplazan por los datos reales del negocio antes de publicar.
       </div>
     </div>
   </section>
@@ -560,7 +662,7 @@
         <p><strong>Horario:</strong> completar con horario real</p>
         <p><strong>WhatsApp:</strong> completar con número real</p>
         <div class="hero-actions">
-          <a class="btn btn-whatsapp" href="https://wa.me/595XXXXXXXXX" target="_blank" rel="noopener">💬 Escribir ahora</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/595995357563" target="_blank" rel="noopener">💬 Escribir ahora</a>
           <a class="btn btn-secondary" href="https://maps.app.goo.gl/vcPdxZHaCfqYzc5UA" target="_blank" rel="noopener">📍 Cómo llegar</a>
         </div>
       </div>
@@ -573,11 +675,62 @@
     </div>
   </section>
 
-  <a class="floating-whatsapp" href="https://wa.me/595XXXXXXXXX?text=Hola%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="WhatsApp">☏</a>
+  <a class="floating-whatsapp" href="https://wa.me/595995357563?text=Hola%2C%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="WhatsApp">☏</a>
 
   <footer>
     <div>Il Panino Resto Bar · Demo comercial</div>
     <div class="powered">Diseño demo por ATB IT Solutions · Infraestructura IT, soporte y páginas web para negocios</div>
   </footer>
+
+  <script>
+    const phone = "595995357563";
+
+    const promos = {
+      0: {
+        dia: "Domingo",
+        titulo: "Promo familiar de domingo",
+        descripcion: "Una promo ideal para cerrar la semana compartiendo pizza, paninos o hamburguesas en familia.",
+      },
+      1: {
+        dia: "Lunes",
+        titulo: "Promo de pizzas de lunes",
+        descripcion: "Arrancá la semana con una promoción especial de pizzas. Se actualiza automáticamente cada lunes.",
+      },
+      2: {
+        dia: "Martes",
+        titulo: "Combo hamburguesa de martes",
+        descripcion: "Combo especial para martes: hamburguesa, papas y bebida. Datos finales a completar por el local.",
+      },
+      3: {
+        dia: "Miércoles",
+        titulo: "Miércoles de chopp",
+        descripcion: "Promo pensada para destacar chopp, tragos o after office. La web muestra esta promo solo los miércoles.",
+      },
+      4: {
+        dia: "Jueves",
+        titulo: "Jueves de paninos",
+        descripcion: "Promoción dedicada a los paninos de la casa. Ideal para mover ventas antes del fin de semana.",
+      },
+      5: {
+        dia: "Viernes",
+        titulo: "Viernes de amigos",
+        descripcion: "Happy hour, tragos, chopp o combos para grupos. La promo cambia automáticamente los viernes.",
+      },
+      6: {
+        dia: "Sábado",
+        titulo: "Sábado de reservas y eventos",
+        descripcion: "Promoción orientada a reservas, grupos, cumpleaños o encuentros de fin de semana.",
+      }
+    };
+
+    const today = new Date().getDay();
+    const promo = promos[today];
+
+    document.getElementById("promo-title").textContent = promo.titulo;
+    document.getElementById("promo-description").textContent = promo.descripcion;
+
+    const message = `Hola, quiero consultar por la promo de hoy: ${promo.titulo}`;
+    document.getElementById("promo-whatsapp").href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  </script>
 </body>
 </html>
